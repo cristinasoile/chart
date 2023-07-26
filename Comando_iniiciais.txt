@@ -1,0 +1,9 @@
+instalar npm para arquivos react com typescript
+
+npm install --save typescript @types/node @types/react @types/react-dom @types/jest
+
+npx tsc --init
+
+tsconfig: 
+"jsx": "react-jsx",
+
