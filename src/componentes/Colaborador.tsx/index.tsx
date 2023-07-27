@@ -13,7 +13,7 @@ function Colaborador({ nome, cargo, imagem, corDeFundo, excluir }: ColaboradorPr
   };
   return (
     <div className='w-[280px]'>
-      <div className='bg-backGround border rounded-t-xl h-[100px] ' style={{ backgroundColor: corDeFundo }}>
+      <div className='border-0 rounded-t-xl h-[100px] ' style={{ backgroundColor: corDeFundo}}>
         <div className='flex justify-end p-1'>
 
           <a data-tooltip-id="my-tooltip" data-tooltip-content="Excluir">
@@ -22,7 +22,7 @@ function Colaborador({ nome, cargo, imagem, corDeFundo, excluir }: ColaboradorPr
           <Tooltip style={{ padding: "8px", borderRadius:'4px'  }} id="my-tooltip" />
         </div>
         <a href={`https://github.com/${imagem}`} target='_blank'>
-        <img className='w-[150px] border rounded-metade relative bottom-[25%] inline' src={`https://github.com/${imagem}.png`} alt={nome}></img>
+        <img className='w-[150px] border-0 rounded-metade relative bottom-[25%] inline' src={`https://github.com/${imagem}.png`} alt={nome}></img>
         </a>
       </div>
       <div className='bg-white shadow-sombra border rounded-b-xl pt-20 pb-10'>

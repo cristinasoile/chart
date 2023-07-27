@@ -6,63 +6,61 @@ import Time from './componentes/Time';
 import Rodape from './componentes/Rodape.tsx';
 import { v4 as uuidv4 } from 'uuid';
 
-interface ITeste {
-  id: string,
-  nome: string,
-  corPrimaria: string,
-}
 
 function App() {
 
-  const arrayzao =[
-  {
-    id: uuidv4(),
-    nome: 'Back-End',
-    corPrimaria: '#57C278',
-  },
-  {
-    id: uuidv4(),
-    nome: 'Front-End',
-    corPrimaria: '#E06B69',
-  },
-  {
-    id: uuidv4(),
-    nome: 'Data-Science',
-    corPrimaria: '#A6D157',
-  },
-  {
-    id: uuidv4(),
-    nome: 'Tech-Leader',
-    corPrimaria: '#575757',
-  },
-  {
-    id: uuidv4(),
-    nome: 'Ux e Design',
-    corPrimaria: '#DB6EBF',
-  },
-  {
-    id: uuidv4(),
-    nome: 'Mobile',
-    corPrimaria: '#82CFFA',
-  },
-  {
-    id: uuidv4(),
-    nome: 'Devops',
-    corPrimaria: '#FFBA05',
-  }
-]
 
-  const [times, setTimes] = useState<ITeste[]>(() => {
-    const data = localStorage.getItem('cores');
-    return data ? JSON.parse(data) : arrayzao;
-  })
 
+  const [times, setTimes] = useState([
+    {
+      id: uuidv4(),
+      nome: 'Back-End',
+      corPrimaria: '#57C278',
+    },
+    {
+      id: uuidv4(),
+      nome: 'Front-End',
+      corPrimaria: '#E06B69',
+    },
+    {
+      id: uuidv4(),
+      nome: 'Data-Science',
+      corPrimaria: '#A6D157',
+    },
+    {
+      id: uuidv4(),
+      nome: 'Tech-Leader',
+      corPrimaria: '#575757',
+    },
+    {
+      id: uuidv4(),
+      nome: 'Ux e Design',
+      corPrimaria: '#DB6EBF',
+    },
+    {
+      id: uuidv4(),
+      nome: 'Mobile',
+      corPrimaria: '#82CFFA',
+    },
+    {
+      id: uuidv4(),
+      nome: 'Devops',
+      corPrimaria: '#FFBA05',
+    }
+  ])
+
+
+  useEffect(() => {
+    const corStatus = localStorage.getItem("cores");
+    if (corStatus) {
+      setTimes(JSON.parse(corStatus))
+    };
+  },[])
 
   useEffect(() => {
     localStorage.setItem("cores", JSON.stringify(times))
   }, [times]);
 
-  // 2 formas de fazer o LocalStorage
   // const colaboradoresFromLocalStorage = localStorage.getItem("colaboradores");
   // const initialColaboradores: IColaborador[] = colaboradoresFromLocalStorage
   // ? JSON.parse(colaboradoresFromLocalStorage)
@@ -97,7 +95,7 @@ function App() {
    }
 
   const mudarCor = (cor: string, id: string) => {
-    atualizarCor(times.map((time: any) => {
+    atualizarCor(times.map((time) => {
       if (time.nome === id) {
         time.corPrimaria = cor;
       }
