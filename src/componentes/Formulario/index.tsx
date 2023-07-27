@@ -42,7 +42,7 @@ export default function Formulario({aoColaborador, itens}: FormularioProps) {
         <form
           onSubmit={aoSalvar}
           className="max-w-[80%] bg-fundo-claro rounded-3xl py-9 px-16 shadow-sombra">
-          <h2 className="font-serif text-neutral-800 text-[32px] font-normal">Preencha os dados para criar o card do colaborador</h2>
+          <h2 className="tiny:text-base font-serif text-neutral-800 text-[32px] font-normal sm:text-3xl">Preencha os dados para criar o card do colaborador</h2>
           <Campotexto
             obrigatorio={true}
             label='Nome'
