@@ -13,15 +13,17 @@ function Colaborador({ nome, cargo, imagem, corDeFundo, excluir }: ColaboradorPr
   };
   return (
     <div className='w-[280px]'>
-      <div className='bg-backGround border rounded-t-xl h-[100px]' style={{ backgroundColor: corDeFundo }}>
+      <div className='bg-backGround border rounded-t-xl h-[100px] ' style={{ backgroundColor: corDeFundo }}>
         <div className='flex justify-end p-1'>
 
           <a data-tooltip-id="my-tooltip" data-tooltip-content="Excluir">
-            <button onClick={handleExcluir}> {<AiFillCloseCircle size={30} className='text-roxinho' />} </button>
+            <button onClick={handleExcluir}> {<AiFillCloseCircle size={30} className='text-roxinho hover:text-yellow-400' />} </button>
           </a>
           <Tooltip style={{ padding: "8px", borderRadius:'4px'  }} id="my-tooltip" />
         </div>
+        <a href={`https://github.com/${imagem}`} target='_blank'>
         <img className='w-[150px] border rounded-metade relative bottom-[25%] inline' src={`https://github.com/${imagem}.png`} alt={nome}></img>
+        </a>
       </div>
       <div className='bg-white shadow-sombra border rounded-b-xl pt-20 pb-10'>
         <h5 className='text-roxo text-lg font-bold mt-4'>{nome}</h5>
