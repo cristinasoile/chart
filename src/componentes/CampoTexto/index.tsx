@@ -9,7 +9,7 @@ interface CampoTextoprops {
 }
 
 
-export default function Campotexto({ placeholder, label, obrigatorio,valor, teste }: CampoTextoprops) {
+export default function Campotexto({ placeholder, label, obrigatorio, valor, teste }: CampoTextoprops) {
 
 
   return (
