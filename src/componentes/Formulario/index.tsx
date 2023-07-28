@@ -3,6 +3,7 @@ import { IColaborador } from '../../interfaces/IColaborador'
 import Botao from '../Botao'
 import Campotexto from '../CampoTexto'
 import ListaCargos from '../ListaCargos'
+import { v4 as uuidv4 } from 'uuid';
 
 
 export interface FormularioProps {
@@ -30,6 +31,7 @@ export default function Formulario({aoColaborador, itens}: FormularioProps) {
         cargo,
         imagem,
         time,
+        id: uuidv4(),
       })
       setNome('')
       setCargo('')

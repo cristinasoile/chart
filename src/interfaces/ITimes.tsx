@@ -1,7 +1,7 @@
 import { IColaborador } from "./IColaborador";
 
 export interface ITime {
-  nome: string;
+  area: string;
   corPrimaria: string;
   colaborador: IColaborador[],
 };

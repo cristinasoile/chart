@@ -8,7 +8,7 @@ interface ITime2 extends ITime {
   mudarCor: (cor: string, nome: string) => void;
 }
 
-export default function Time({nome, corPrimaria, colaborador, excluir, mudarCor}: ITime2 ) {
+export default function Time({area, corPrimaria, colaborador, excluir, mudarCor}: ITime2 ) {
 
   const estiloSection = { backgroundColor: hexToRgba(corPrimaria, '0.6') }
 
@@ -20,13 +20,14 @@ export default function Time({nome, corPrimaria, colaborador, excluir, mudarCor}
     (colaborador.length > 0) ?
     <>
         <section className='text-center p-8 relative' style={estiloSection}>
-          <input type='color' value={corPrimaria} className='absolute top-5 right-12' onChange={(e) => mudarCor(e.target.value, nome)} />
-      <h3 className='inline-block font-serif text-neutral-800 text-[32px] font-normal border-b-4 mb-10' style={estiloH3}>{nome}</h3>
+          <input type='color' value={corPrimaria} className='absolute top-5 right-12' onChange={(e) => mudarCor(e.target.value, area)} />
+      <h3 className='inline-block font-serif text-neutral-800 text-[32px] font-normal border-b-4 mb-10' style={estiloH3}>{area}</h3>
         <div className='flex flex-wrap justify-evenly mt-2 gap-4'>
             {colaborador.map(p => <Colaborador
           excluir={excluir}
           corDeFundo={corPrimaria}
-          key={p.nome}
+          key={p.id}
+          id={p.id}
           nome={p.nome}
           cargo={p.cargo }
           imagem={p.imagem }

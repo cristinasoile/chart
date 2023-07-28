@@ -5,4 +5,5 @@ export interface IColaborador {
   time?: string,
   data?: string
   corDeFundo?: string,
+  id: string
 }

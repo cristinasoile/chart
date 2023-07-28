@@ -8,53 +8,53 @@ import { v4 as uuidv4 } from 'uuid';
 
 interface ITeste {
   id: string,
-  nome: string,
+  nomeArea: string,
   corPrimaria: string,
 }
 
 function App() {
 
-  const arrayzao =[
+  const dadosTime =[
   {
     id: uuidv4(),
-    nome: 'Back-End',
+    nomeArea: 'Back-End',
     corPrimaria: '#57C278',
   },
   {
     id: uuidv4(),
-    nome: 'Front-End',
+    nomeArea: 'Front-End',
     corPrimaria: '#E06B69',
   },
   {
     id: uuidv4(),
-    nome: 'Data-Science',
+    nomeArea: 'Data-Science',
     corPrimaria: '#A6D157',
   },
   {
     id: uuidv4(),
-    nome: 'Tech-Leader',
+    nomeArea: 'Tech-Leader',
     corPrimaria: '#575757',
   },
   {
     id: uuidv4(),
-    nome: 'Ux e Design',
+    nomeArea: 'Ux e Design',
     corPrimaria: '#DB6EBF',
   },
   {
     id: uuidv4(),
-    nome: 'Mobile',
+    nomeArea: 'Mobile',
     corPrimaria: '#82CFFA',
   },
   {
     id: uuidv4(),
-    nome: 'Devops',
+    nomeArea: 'Devops',
     corPrimaria: '#FFBA05',
   }
 ]
 
   const [times, setTimes] = useState<ITeste[]>(() => {
     const data = localStorage.getItem('cores');
-    return data ? JSON.parse(data) : arrayzao;
+    return data ? JSON.parse(data) : dadosTime;
   })
 
 
@@ -88,7 +88,7 @@ function App() {
   }
 
   const excluir = (colaborador: IColaborador) => {
-    atualizar(colaboradores.filter((obj) => obj.nome !== colaborador.nome));
+    atualizar(colaboradores.filter((obj) => obj.id !== colaborador.id));
   };
 
   const atualizarCor = (cor: any) => {
@@ -96,9 +96,9 @@ function App() {
     localStorage.setItem("cores", JSON.stringify(times))
    }
 
-  const mudarCor = (cor: string, id: string) => {
-    atualizarCor(times.map((time: any) => {
-      if (time.nome === id) {
+  const mudarCor = (cor: string, nome: string) => {
+    atualizarCor(times.map((time) => {
+      if (time.nomeArea === nome) {
         time.corPrimaria = cor;
       }
       return time;
@@ -109,14 +109,14 @@ function App() {
   return (
     <div>
       <Banner />
-      <Formulario itens={times.map(e => e.nome)} aoColaborador={colaborador => novoColaborador(colaborador)}/>
+      <Formulario itens={dadosTime.map(e => e.nomeArea)} aoColaborador={colaborador => novoColaborador(colaborador)}/>
       {times.map(a => <Time
         mudarCor={mudarCor}
         excluir={excluir}
-        key={a.nome}
-        nome={a.nome}
+        key={a.id}
+        area={a.nomeArea}
         corPrimaria={a.corPrimaria}
-        colaborador={colaboradores.filter(colaborador => colaborador.time === a.nome)}
+        colaborador={colaboradores.filter(colaborador => colaborador.time === a.nomeArea)}
       />)}
       <Rodape />
     </div>

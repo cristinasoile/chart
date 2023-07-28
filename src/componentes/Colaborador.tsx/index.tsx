@@ -6,10 +6,10 @@ interface ColaboradorProps extends IColaborador {
   excluir: (colaborador: IColaborador) => void;
 }
 
-function Colaborador({ nome, cargo, imagem, corDeFundo, excluir }: ColaboradorProps) {
+function Colaborador({ id, nome, cargo, imagem, corDeFundo, excluir }: ColaboradorProps) {
   const handleExcluir = () => {
     // Chamamos diretamente a função 'excluir' passando este colaborador como argumento
-    excluir({ nome, cargo, imagem, corDeFundo })
+    excluir({id, nome, cargo, imagem, corDeFundo })
   };
   return (
     <div className='w-[280px]'>
