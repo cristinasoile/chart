@@ -112,7 +112,7 @@ function App() {
   }
 
   const cadastrarTime = ({nomeArea, corPrimaria}: ITeste) => {
-    setTimes([...dadosTime, { nomeArea, corPrimaria, id: uuidv4()}])
+    setTimes([...times, { nomeArea, corPrimaria, id: uuidv4()}])
   }
 
 
