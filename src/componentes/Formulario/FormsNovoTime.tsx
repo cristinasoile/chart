@@ -6,22 +6,15 @@ import Campotexto from '../CampoTexto'
 
 export interface IFormsNovoTime {
   aoSalvarTime: (e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
-  teste: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void,
-  teste2: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void,
+  alterarEstado: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void,
+  alterarCorTime: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void,
+  fecharModal: () => void,
   placeholder: string,
   valor: string,
-  valor2: string,
+  corTime: string,
 }
 
-function FormsNovoTime({ aoSalvarTime, teste, teste2, placeholder, valor, valor2 }: IFormsNovoTime) {
-
-
-  console.log('teste==>', teste);
-  console.log('valor==>', valor);
-  console.log('teste2==>', teste2);
-  console.log('valor2==>',valor2);
-
-
+function FormsNovoTime({ aoSalvarTime, alterarEstado, alterarCorTime, placeholder, valor, corTime, fecharModal }: IFormsNovoTime) {
 
   return (
 
@@ -36,15 +29,15 @@ function FormsNovoTime({ aoSalvarTime, teste, teste2, placeholder, valor, valor2
           label='Novo Time'
           placeholder={placeholder}
           valor={valor}
-          teste={teste}
+          alterarEstado={alterarEstado}
         />
         <Campotexto
           type='color'
           label='Cor'
           obrigatorio
           placeholder='Selecione a cor do time'
-          valor2={valor2}
-          teste2={teste2}
+          valor={corTime}
+          alterarEstado={alterarCorTime}
         />
         <div className='flex flex-wrap justify-between'>
           <button
@@ -54,7 +47,7 @@ function FormsNovoTime({ aoSalvarTime, teste, teste2, placeholder, valor, valor2
           </button>
           <button
             className="rounded-lg bg-roxinho w-40 h-20 mt-10 px-2 font-sans text-center text-white text-xl font-bold hover:text-yellow-400"
-            onClick={aoSalvarTime}>
+            onClick={fecharModal}>
             cancelar
           </button>
         </div>
