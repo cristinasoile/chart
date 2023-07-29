@@ -2,11 +2,13 @@ import "./campoTexto.css"
 import React from "react"
 
 interface CampoTextoprops {
-  teste: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void,
+  teste?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void,
+  teste2?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void,
   placeholder: string,
   label: string,
   obrigatorio: boolean
-  valor: string,
+  valor?: string,
+  valor2?: string,
   type: 'text' | 'date' | 'password' | 'email' | 'number' | 'color',
 }
 
@@ -21,8 +23,6 @@ export default function Campotexto({ type, placeholder, label, obrigatorio, valo
         required={obrigatorio}
         value={valor}
         type={type}
-
-
       />
     </div>
   )
