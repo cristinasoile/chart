@@ -1,5 +1,4 @@
 import { IColaborador } from "../../interfaces/IColaborador"
-import { AiFillCloseCircle } from "react-icons/ai";
 import { Tooltip } from 'react-tooltip'
 import ModalDelete from "../Modals/ModalDelete";
 import ModalEdit from "../Modals/ModalEdit";
@@ -9,16 +8,13 @@ interface ColaboradorProps extends IColaborador {
 }
 
 function Colaborador({ id, nome, cargo, imagem, corDeFundo, excluir }: ColaboradorProps) {
-  // const handleExcluir = () => {
-  //   // Chamamos diretamente a função 'excluir' passando este colaborador como argumento
-  //   excluir({id, nome, cargo, imagem, corDeFundo })
-  // };
+
   return (
     <div className='w-[280px]'>
       <div className='border-0 rounded-t-xl h-[100px] ' style={{ backgroundColor: corDeFundo}}>
         <div className='flex justify-between p-1'>
         <a data-tooltip-id="my-tooltip" data-tooltip-content="Editar">
-          <ModalEdit />
+            <ModalEdit id={id} nome={nome} cargo={cargo} />
           </a>
           <Tooltip style={{ padding: "8px", borderRadius:'4px'  }} id="my-tooltip" />
           <a data-tooltip-id="my-tooltip" data-tooltip-content="Excluir">

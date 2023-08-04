@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
 import { IColaborador } from './interfaces/IColaborador';
 import Time from './componentes/Time';
 import Rodape from './componentes/Rodape.tsx';
 import { v4 as uuidv4 } from 'uuid';
+import { AppProvider, IAppContext, IProvider } from './componentes/Context/AppProvider';
 
 export interface ITeste {
   id: string,
@@ -12,13 +13,23 @@ export interface ITeste {
   corPrimaria: string,
 }
 
-// interface ICadastrarTimes extends IColaborador {
-//   nomeTime: string
-//   corTime: string
-//   id: string
-// }
 
-function App() {
+interface ICadastrarTimes extends IColaborador {
+  nomeTime: string
+  corTime: string
+  id: string
+}
+
+const App: React.FC = () => {
+
+//   const {  times,
+//     colaboradores,
+//     atualizar,
+//     novoColaborador,
+//     excluir,
+//     atualizarCor,
+//     mudarCor,
+//     cadastrarTime } = useContext(AppProvider);
 
   const dadosTime = [
     {
@@ -68,13 +79,19 @@ function App() {
     localStorage.setItem("cores", JSON.stringify(times))
   }, [times]);
 
+  // _______________________________________
+
   // 2 formas de fazer o LocalStorage
+
   // const colaboradoresFromLocalStorage = localStorage.getItem("colaboradores");
   // const initialColaboradores: IColaborador[] = colaboradoresFromLocalStorage
   // ? JSON.parse(colaboradoresFromLocalStorage)
   // : [];
 
   // const [colaboradores, setColaboradores] = useState<IColaborador[]>(initialColaboradores)
+
+  // _______________________________________
+
 
   const [colaboradores, setColaboradores] = useState<IColaborador[]>(() => {
     const initialColaboradores = localStorage.getItem("colaboradores")
@@ -117,7 +134,7 @@ function App() {
 
 
   return (
-    <div>
+      <div>
       <Banner />
       <Formulario cadastrarTime={cadastrarTime} itens={times.map(e => e.nomeArea)} aoColaborador={colaborador => novoColaborador(colaborador)} />
       {times.map(a => <Time
@@ -127,12 +144,12 @@ function App() {
         area={a.nomeArea}
         corPrimaria={a.corPrimaria}
         colaborador={colaboradores.filter(colaborador => colaborador.time === a.nomeArea)}
-      />)}
+        />)}
       <Rodape />
-    </div>
+      </div>
+
   );
 }
 
 export default App;
 
-// text' | 'date' | 'password' | 'email' | 'number'

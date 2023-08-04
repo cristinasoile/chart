@@ -34,6 +34,7 @@ export default function Formulario({ cadastrarTime, aoColaborador, itens }: Form
     setOpen(true)
   }
 
+  //context
   const aoSalvar = (e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
     e.preventDefault()
@@ -51,6 +52,7 @@ export default function Formulario({ cadastrarTime, aoColaborador, itens }: Form
     setTime('Back-End')
   }
 
+  //context
   const aoSalvarTime = (e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
     e.preventDefault()

@@ -1,7 +1,4 @@
 import React from 'react'
-import { ITeste } from '../../App'
-import { IColaborador } from '../../interfaces/IColaborador'
-import Botao from '../Botao'
 import Campotexto from '../CampoTexto'
 
 export interface IFormsNovoTime {
